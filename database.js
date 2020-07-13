@@ -23,8 +23,11 @@ exports.initializeMongo = function(){
     db.on('error', console.error.bind(console,'connection error mongodbx'));
     db.once('open',function(){
         console.log('Connection Once MongDB');
-        //addArrayData2();
+        pokemons.remove({}, function(err) { 
+            console.log('collection removed') 
+         });
         addArrayData1();
+        // addArrayData2();
     });
 }
 var addArrayData1 = function(){
